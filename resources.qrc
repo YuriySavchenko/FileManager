@@ -5,6 +5,6 @@
         <file>images/icon.png</file>
         <file>images/newFile.png</file>
         <file>images/newFolder.png</file>
-        <file>images/findFolder.png</file>
+        <file>images/delete.png</file>
     </qresource>
 </RCC>

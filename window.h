@@ -46,6 +46,7 @@ private:
     QPushButton *buttonCreateFile;
     QPushButton *buttonHome;
     QPushButton *buttonStepBack;
+    QPushButton *buttonDeleteItem;
     QVBoxLayout *mainLayout;
     QListView *listView;
     QFileSystemModel *model;
@@ -62,6 +63,7 @@ public slots:
     void createNewDir(QString);
     void createNewFile(QString);
     void stepBack();
+    void deleteItem();
 
 public slots:
     // slot which allow moving in directories

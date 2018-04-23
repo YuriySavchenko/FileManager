@@ -40,7 +40,7 @@ MOBILITY =
 
 RESOURCES += \
     resources.qrc
-    
+
 DISTFILES += \
     android/AndroidManifest.xml \
     android/gradle/wrapper/gradle-wrapper.jar \
@@ -76,3 +76,5 @@ DISTFILES += \
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
 FORMS +=
+
+STATECHARTS +=

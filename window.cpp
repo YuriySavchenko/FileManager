@@ -9,11 +9,12 @@ Window::Window(QWidget *parent)
 
     // connect signals with slots
 
-    connect(listView, SIGNAL(clicked(QModelIndex)), this, SLOT(openDirectory(QModelIndex)));
+    connect(listView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openDirectory(QModelIndex)));
     connect(buttonStepBack, SIGNAL(clicked(bool)), this, SLOT(stepBack()));
     connect(buttonHome, SIGNAL(clicked(bool)), this, SLOT(setHomePath()));
     connect(buttonCreateDir, SIGNAL(clicked(bool)), this, SLOT(openWindowNewDir()));
     connect(buttonCreateFile, SIGNAL(clicked(bool)), this, SLOT(openWindowNewFile()));
+    connect(buttonDeleteItem, SIGNAL(clicked(bool)), this, SLOT(deleteItem()));
     connect(newFolder, SIGNAL(closeWindow(QString)), this, SLOT(createNewDir(QString)));
     connect(newFile, SIGNAL(closeWindow(QString)), this, SLOT(createNewFile(QString)));
 }
@@ -25,6 +26,7 @@ Window::~Window()
     buttonCreateFile->deleteLater();
     buttonHome->deleteLater();
     buttonStepBack->deleteLater();
+    buttonDeleteItem->deleteLater();
     listView->deleteLater();
     mainLayout->deleteLater();
     newFolder->deleteLater();
@@ -49,6 +51,7 @@ void Window::initializeWidgets()
     buttonCreateFile = new QPushButton();
     buttonHome = new QPushButton();
     buttonStepBack = new QPushButton();
+    buttonDeleteItem = new QPushButton();
 
     // Initialize object of QListView
 
@@ -88,11 +91,19 @@ void Window::initializeWidgets()
     buttonCreateFile->setIcon(QIcon(":/images/images/newFile.png"));
     buttonHome->setIcon(QIcon(":/images/images/home.png"));
     buttonStepBack->setIcon(QIcon(":/images/images/back.png"));
+    buttonDeleteItem->setIcon(QIcon(":/images/images/delete.png"));
 
-    buttonCreateDir->setIconSize(QSize(50, 50));
-    buttonCreateFile->setIconSize(QSize(50, 50));
-    buttonHome->setIconSize(QSize(50, 50));
-    buttonStepBack->setIconSize(QSize(50, 50));
+    buttonCreateDir->setIconSize(QSize(60, 60));
+    buttonCreateFile->setIconSize(QSize(60, 60));
+    buttonHome->setIconSize(QSize(60, 60));
+    buttonStepBack->setIconSize(QSize(60, 60));
+    buttonDeleteItem->setIconSize(QSize(60, 60));
+
+    buttonCreateDir->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    buttonCreateFile->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    buttonHome->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    buttonStepBack->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    buttonDeleteItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     // setting model
 
@@ -117,6 +128,7 @@ void Window::initializeWidgets()
     menu->addWidget(buttonHome);
     menu->addWidget(buttonCreateDir);
     menu->addWidget(buttonCreateFile);
+    menu->addWidget(buttonDeleteItem);
 
     // add widget to main layout
 
@@ -178,6 +190,11 @@ void Window::stepBack()
         messageCritical("Error!", "This is a top directory!");
 
     listView->clearSelection();
+}
+
+void Window::deleteItem()
+{
+    model->remove(listView->currentIndex());
 }
 
 void Window::setHomePath()
