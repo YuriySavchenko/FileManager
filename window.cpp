@@ -82,8 +82,7 @@ void Window::initializeWidgets()
     if (QDir("/home").exists())
         listView->setIconSize(QSize(60, 45));
 
-    if (QDir("/storage").exists())
-        listView->setIconSize(QSize(90, 70));
+    else listView->setIconSize(QSize(90, 70));
 
     // setting buttons
 
@@ -102,7 +101,7 @@ void Window::initializeWidgets()
         buttonDeleteItem->setIconSize(QSize(60, 60));
     }
 
-    else if (QDir("/home") || QDir("C:\\"))
+    else
     {
         buttonCreateDir->setIconSize(QSize(40, 40));
         buttonCreateFile->setIconSize(QSize(40, 40));
