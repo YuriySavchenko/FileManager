@@ -194,7 +194,15 @@ void Window::stepBack()
 
 void Window::deleteItem()
 {
-    model->remove(listView->currentIndex());
+    QMessageBox::StandardButton reply;
+    reply = (QMessageBox::StandardButton) QMessageBox::question(this, "Delete", "Are you really want delete this item?",
+                                          QMessageBox::Yes, QMessageBox::No);
+
+    if (reply == QMessageBox::Yes)
+        model->remove(listView->currentIndex());
+
+    else
+        return;
 }
 
 void Window::setHomePath()
