@@ -122,13 +122,3 @@ QLabel *CreateNew::getLabelInfo()
 {
     return this->labelInfo;
 }
-
-QLineEdit *CreateNew::getlineEditName()
-{
-    return this->lineEditName;
-}
-
-QPushButton *CreateNew::getPushButtonOK()
-{
-    return this->buttonOK;
-}

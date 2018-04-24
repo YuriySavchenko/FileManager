@@ -79,7 +79,7 @@ void Window::initializeWidgets()
 
     listView->setAutoScroll(true);
 
-    if (QDir("/home/yuriy").exists())
+    if (QDir("/home").exists())
         listView->setIconSize(QSize(60, 45));
 
     if (QDir("/storage").exists())
@@ -93,11 +93,23 @@ void Window::initializeWidgets()
     buttonStepBack->setIcon(QIcon(":/images/images/back.png"));
     buttonDeleteItem->setIcon(QIcon(":/images/images/delete.png"));
 
-    buttonCreateDir->setIconSize(QSize(60, 60));
-    buttonCreateFile->setIconSize(QSize(60, 60));
-    buttonHome->setIconSize(QSize(60, 60));
-    buttonStepBack->setIconSize(QSize(60, 60));
-    buttonDeleteItem->setIconSize(QSize(60, 60));
+    if (QDir("/storage").exists())
+    {
+        buttonCreateDir->setIconSize(QSize(60, 60));
+        buttonCreateFile->setIconSize(QSize(60, 60));
+        buttonHome->setIconSize(QSize(60, 60));
+        buttonStepBack->setIconSize(QSize(60, 60));
+        buttonDeleteItem->setIconSize(QSize(60, 60));
+    }
+
+    else if (QDir("/home") || QDir("C:\\"))
+    {
+        buttonCreateDir->setIconSize(QSize(40, 40));
+        buttonCreateFile->setIconSize(QSize(40, 40));
+        buttonHome->setIconSize(QSize(40, 40));
+        buttonStepBack->setIconSize(QSize(40, 40));
+        buttonDeleteItem->setIconSize(QSize(40, 40));
+    }
 
     buttonCreateDir->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     buttonCreateFile->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -120,6 +132,12 @@ void Window::initializeWidgets()
         model->setRootPath("/storage");
         listView->setModel(model);
         listView->setRootIndex(model->index("/storage"));
+    }
+    else if (QDir("D:\\").exists())
+    {
+        model->setRootPath("D:\\");
+        listView->setModel(model);
+        listView->setRootIndex(model->index("D:\\"));
     }
 
     // add buttons to menu
@@ -195,8 +213,9 @@ void Window::stepBack()
 void Window::deleteItem()
 {
     QMessageBox::StandardButton reply;
-    reply = (QMessageBox::StandardButton) QMessageBox::question(this, "Delete", "Are you really want delete this item?",
-                                          QMessageBox::Yes, QMessageBox::No);
+    reply = (QMessageBox::StandardButton) QMessageBox::question(this, "Delete",
+                                       "Are you really want delete this item?",
+                                            QMessageBox::Yes, QMessageBox::No);
 
     if (reply == QMessageBox::Yes)
         model->remove(listView->currentIndex());
@@ -206,6 +225,7 @@ void Window::deleteItem()
 }
 
 void Window::setHomePath()
+
 {
     if (QDir("/home/yuriy").exists())
     {
@@ -218,6 +238,12 @@ void Window::setHomePath()
         model->setRootPath("/storage");
         listView->setModel(model);
         listView->setRootIndex(model->index("/storage"));
+    }
+    else if (QDir("D:\\").exists())
+    {
+        model->setRootPath("D:\\");
+        listView->setModel(model);
+        listView->setRootIndex(model->index("D:\\"));
     }
 }
 

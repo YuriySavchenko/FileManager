@@ -61,11 +61,9 @@ public slots:
     void pressButtonOK();
 
 public:
-    // methods which allow get access to private rows
+    // method which allow get access to private row
 
     QLabel *getLabelInfo();
-    QLineEdit *getlineEditName();
-    QPushButton *getPushButtonOK();
 
 };
 
