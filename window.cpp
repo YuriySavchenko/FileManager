@@ -125,18 +125,21 @@ void Window::initializeWidgets()
         model->setRootPath(QDir::homePath());
         listView->setModel(model);
         listView->setRootIndex(model->index(QDir::homePath()));
+        stackDirs.push_back(QDir::homePath());
     }
     else if (QDir("/storage").exists())
     {
         model->setRootPath("/storage");
         listView->setModel(model);
         listView->setRootIndex(model->index("/storage"));
+        stackDirs.push_back(QDir("/storage"));
     }
     else if (QDir("D:\\").exists())
     {
         model->setRootPath("D:\\");
         listView->setModel(model);
         listView->setRootIndex(model->index("D:\\"));
+        stackDirs.push_back(QDir("D:\\"));
     }
 
     // add buttons to menu
@@ -192,7 +195,7 @@ void Window::stepBack()
     QModelIndex currentIndex = listView->currentIndex();
     QFileInfo fileInfo = model->fileInfo(currentIndex);
 
-    if (!stackDirs.isEmpty())
+    if (!stackDirs.isEmpty() && stackDirs.size() != 1)
     {
         QDir currentDir = stackDirs.last();
         stackDirs.pop_back();
@@ -261,10 +264,10 @@ void Window::createNewDir(QString name)
     if (name == "__ignore__")
         return;
 
-    if (name.isEmpty())
+    if (name.isEmpty() && !stackDirs.isEmpty())
         model->mkdir(model->index(stackDirs.last().absolutePath()), "NewFolder");
 
-    if (!name.isEmpty())
+    if (!name.isEmpty() && !stackDirs.isEmpty())
         model->mkdir(model->index(stackDirs.last().absolutePath()), name);
 }
 
@@ -273,13 +276,13 @@ void Window::createNewFile(QString name)
     if (name == "__ignore__")
         return;
 
-    else if (name.isEmpty())
+    else if (name.isEmpty() && !stackDirs.isEmpty())
     {
         name.append(stackDirs.last().absolutePath() + "/");
         name.append("NewFile.txt");
     }
 
-    else if (!name.isEmpty())
+    else if (!name.isEmpty() && !stackDirs.isEmpty())
     {
         QStringList list = name.split(".");
         QString border = ".txt";
