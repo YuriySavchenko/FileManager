@@ -52,23 +52,28 @@ Some photos which represent work of file manager in Android.
 
 ### General look of program:
 
-
+![image](https://user-images.githubusercontent.com/36791929/40864110-11b82976-65fb-11e8-80e3-ea41bbe487ef.png)
 
 ### Example of creating new folder:
 
-
+![image](https://user-images.githubusercontent.com/36791929/40864131-321e69a0-65fb-11e8-9973-7ecfb4654001.png)
 
 ### Example of creating new file:
 
-
+![image](https://user-images.githubusercontent.com/36791929/40864146-4a9e1a34-65fb-11e8-9cf8-f8f108336341.png)
 
 ### Example of delete item: 
 
-
+![image](https://user-images.githubusercontent.com/36791929/40864159-5fa12caa-65fb-11e8-8097-54a0564c3a15.png)
 
 ### Example of open file:
 
+![image](https://user-images.githubusercontent.com/36791929/40864173-6ca45512-65fb-11e8-9975-a6b8d0144e62.png)
 
+### Example of open song:
 
-### Example of open and listen song:
+![image](https://user-images.githubusercontent.com/36791929/40864198-9009c366-65fb-11e8-9214-e53fad591ad6.png)
 
+### Example of listening song:
+
+![image](https://user-images.githubusercontent.com/36791929/40864184-82b829dc-65fb-11e8-8e70-a5af06b5686e.png)
