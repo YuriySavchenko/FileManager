@@ -24,22 +24,13 @@ button "Delete" then program remove current folder.
 
 ## Some photos
 
-```
-
 ![image](https://user-images.githubusercontent.com/36791929/40862743-232210e6-65f6-11e8-997e-fb86ab7c462a.png)
 
-```
-```
 ![image](https://user-images.githubusercontent.com/36791929/40862766-38f1319a-65f6-11e8-8fbb-b68c7bf4943c.png)
 
-```
-```
 ![image](https://user-images.githubusercontent.com/36791929/40862794-50434798-65f6-11e8-91e4-ff436bc28868.png)
 
-```
-```
 ![image](https://user-images.githubusercontent.com/36791929/40862872-88e6055e-65f6-11e8-9f6f-eddb9aeca370.png)
 
-```
 
 
