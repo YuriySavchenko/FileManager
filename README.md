@@ -24,12 +24,11 @@ button "Delete" then program remove current folder.
 
 ## Some photos in Linux OS
 
-
-### General look of program:
-
 ```
 Some photos which represent work of file manager in Linux OS. 
 ```
+
+### General look of program:
 
 ![image](https://user-images.githubusercontent.com/36791929/40862743-232210e6-65f6-11e8-997e-fb86ab7c462a.png)
 
@@ -46,4 +45,30 @@ Some photos which represent work of file manager in Linux OS.
 ![image](https://user-images.githubusercontent.com/36791929/40862872-88e6055e-65f6-11e8-9f6f-eddb9aeca370.png)
 
 ## Some photos in Android
+
+```
+Some photos which represent work of file manager in Android.
+```
+
+### General look of program:
+
+
+
+### Example of creating new folder:
+
+
+
+### Example of creating new file:
+
+
+
+### Example of delete item: 
+
+
+
+### Example of open file:
+
+
+
+### Example of open and listen song:
 
